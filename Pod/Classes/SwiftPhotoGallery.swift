@@ -23,7 +23,7 @@ import UIKit
 
 public class SwiftPhotoGallery: UIViewController {
 
-    fileprivate var animateImageTransition = false
+    public var animateImageTransition = false
     fileprivate var isViewFirstAppearing = true
     fileprivate var deviceInRotation = false
 
@@ -98,7 +98,7 @@ public class SwiftPhotoGallery: UIViewController {
     #endif
 
     public var isSwipeToDismissEnabled: Bool = true
-    public var isRevolvingCarouselEnabled: Bool = true
+    public var isRevolvingCarouselEnabled: Bool = false
 
     private var pageBeforeRotation: Int = 0
     private var currentIndexPath: IndexPath = IndexPath(item: 0, section: 0)
@@ -170,7 +170,7 @@ public class SwiftPhotoGallery: UIViewController {
         pageControl.currentPageIndicatorTintColor = UIColor.white
         pageControl.pageIndicatorTintColor = UIColor(white: 0.75, alpha: 0.35) //Dim Gray
 
-        isRevolvingCarouselEnabled = numberOfImages > 1
+        // isRevolvingCarouselEnabled = numberOfImages > 1
         setupPageControl()
         setupGestureRecognizers()
     }
@@ -457,7 +457,7 @@ extension SwiftPhotoGallery: UICollectionViewDataSource {
 extension SwiftPhotoGallery: UICollectionViewDelegate {
 
     public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        animateImageTransition = true
+        // animateImageTransition = true
         self.pageControl.alpha = 1.0
     }
 
